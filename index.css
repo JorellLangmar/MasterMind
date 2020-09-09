@@ -1,0 +1,551 @@
+* {
+	box-sizing: border-box;
+	margin: 0px;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+#first-page {
+	display: flex;
+	flex-direction: column;
+	background: url(/sources/Brain.jpg) center center / cover no-repeat;
+}
+
+section {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+}
+
+#title h1 {
+	font-family: "Long Cang", cursive;
+	color: white;
+	font-size: 140px;
+}
+
+#title {
+	margin: auto;
+	margin-left: 100px;
+}
+
+a {
+	position: absolute;
+	align-self: center;
+	bottom: 0%;
+	z-index: 2;
+	display: inline-block;
+	-webkit-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+	text-decoration: none;
+	color: white;
+	font-size: 30px;
+	font-family: "Long Cang", cursive;
+	padding-top: 50px;
+}
+
+a span {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 46px;
+	height: 46px;
+	margin-left: -23px;
+	border: 1px solid #fff;
+	border-radius: 100%;
+	box-sizing: border-box;
+}
+a span::after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	content: "";
+	width: 16px;
+	height: 16px;
+	margin: -12px 0 0 -8px;
+	border-left: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	box-sizing: border-box;
+}
+a span::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	content: "";
+	width: 44px;
+	height: 44px;
+	box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1);
+	border-radius: 100%;
+	opacity: 0;
+	-webkit-animation: sdb 3s infinite;
+	animation: sdb 3s infinite;
+	box-sizing: border-box;
+}
+@-webkit-keyframes sdb {
+	0% {
+		opacity: 0;
+	}
+	30% {
+		opacity: 1;
+	}
+	60% {
+		box-shadow: 0 0 0 60px rgba(255, 255, 255, 0.1);
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@keyframes sdb {
+	0% {
+		opacity: 0;
+	}
+	30% {
+		opacity: 1;
+	}
+	60% {
+		box-shadow: 0 0 0 60px rgba(255, 255, 255, 0.1);
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+#game {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	align-content: center;
+	background: url(./sources/Bleu-foncé.jpg)
+		center center / cover no-repeat;
+	width: 100vw;
+	height: 100vh;
+	color: white;
+	position: relative;
+}
+
+#game-part {
+	padding: 5vh 0vh;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#game table {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	border-spacing: 5px;
+}
+
+.line {
+	font-family: "Long Cang", cursive;
+	font-size: 20px;
+	text-align: center;
+	font: italic;
+}
+
+#game-part td {
+	padding: 8px;
+}
+
+.color {
+	border-radius: 50%;
+	background: white;
+	margin: 5px;
+	width: 40px;
+	box-shadow: inset 0px 0px 15px black;
+	border: 1px solid black;
+}
+
+.blue {
+	border-radius: 50%;
+	background: white;
+	margin: 5px;
+	width: 40px;
+	box-shadow: inset 0px 0px 25px rgba(41, 41, 168, 0.89);
+	border: 1px solid black;
+}
+
+.green {
+	border-radius: 50%;
+	background: white;
+	margin: 5px;
+	width: 40px;
+	box-shadow: inset 0px 0px 25px rgb(34, 131, 94);
+	border: 1px solid black;
+}
+
+.yellow {
+	border-radius: 50%;
+	background: white;
+	margin: 5px;
+	width: 40px;
+	box-shadow: inset 0px 0px 25px rgb(220, 252, 42);
+	border: 1px solid black;
+}
+
+.purple {
+	border-radius: 50%;
+	background: white;
+	margin: 5px;
+	width: 40px;
+	box-shadow: inset 0px 0px 25px rgb(114, 7, 175);
+	border: 1px solid black;
+}
+
+.red {
+	border-radius: 50%;
+	background: white;
+	margin: 5px;
+	width: 40px;
+	box-shadow: inset 0px 0px 25px rgb(170, 2, 2);
+	border: 1px solid black;
+}
+
+.orange {
+	border-radius: 50%;
+	background: white;
+	margin: 5px;
+	width: 40px;
+	box-shadow: inset 0px 0px 25px rgb(252, 143, 0);
+	border: 1px solid black;
+}
+
+.pink {
+	border-radius: 50%;
+	background: white;
+	margin: 5px;
+	width: 40px;
+	box-shadow: inset 0px 0px 25px rgb(207, 3, 180);
+	border: 1px solid black;
+}
+
+.dark-blue {
+	border-radius: 50%;
+	background: white;
+	margin: 5px;
+	width: 40px;
+	box-shadow: inset 0px 0px 25px rgb(2, 9, 73);
+	border: 1px solid black;
+}
+#colors td {
+	border-radius: 50%;
+	background: white;
+	margin: 5px;
+	width: 40px;
+	height: 40px;
+}
+
+#given-colors {
+	border: 2px dashed white;
+	border-radius: 25%;
+}
+
+#game #message {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+}
+
+#message button {
+	border: none;
+	background-color: inherit;
+	padding: 14px 28px;
+	font-size: 16px;
+	cursor: pointer;
+	display: inline-block;
+	font-family: "Long Cang", cursive;
+	color: white;
+	font-size: 50px;
+}
+
+#game > div {
+	width: 33%;
+}
+
+.loaded {
+	font-family: "Long Cang", cursive;
+	color: white;
+	font-size: 30px;
+	text-align: center;
+	height: 50px;
+}
+
+.hint img {
+	display: block;
+	width: 0.5vw;
+	margin: 3px;
+}
+
+.hint {
+	display: flex;
+	flex-direction: row;
+	width: 4vw;
+	flex-wrap: wrap;
+	height: inherit;
+}
+
+.black {
+	border-radius: 50%;
+	border: 1px solid black;
+	background: black;
+}
+
+.heartbeat {
+	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+	animation: heartbeat 1.5s ease-in-out infinite both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2020-9-8 18:17:43
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation heartbeat
+ * ----------------------------------------
+ */
+@-webkit-keyframes heartbeat {
+	from {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-transform-origin: center center;
+		transform-origin: center center;
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+	}
+	10% {
+		-webkit-transform: scale(0.91);
+		transform: scale(0.91);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+	}
+	17% {
+		-webkit-transform: scale(0.98);
+		transform: scale(0.98);
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+	}
+	33% {
+		-webkit-transform: scale(0.87);
+		transform: scale(0.87);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+	}
+	45% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+	}
+}
+@keyframes heartbeat {
+	from {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-transform-origin: center center;
+		transform-origin: center center;
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+	}
+	10% {
+		-webkit-transform: scale(0.91);
+		transform: scale(0.91);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+	}
+	17% {
+		-webkit-transform: scale(0.98);
+		transform: scale(0.98);
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+	}
+	33% {
+		-webkit-transform: scale(0.87);
+		transform: scale(0.87);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+	}
+	45% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+	}
+}
+
+.text-focus-in {
+	-webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+	animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2020-9-8 18:22:22
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation text-focus-in
+ * ----------------------------------------
+ */
+@-webkit-keyframes text-focus-in {
+	0% {
+		-webkit-filter: blur(12px);
+		filter: blur(12px);
+		opacity: 0;
+	}
+	100% {
+		-webkit-filter: blur(0px);
+		filter: blur(0px);
+		opacity: 1;
+	}
+}
+@keyframes text-focus-in {
+	0% {
+		-webkit-filter: blur(12px);
+		filter: blur(12px);
+		opacity: 0;
+	}
+	100% {
+		-webkit-filter: blur(0px);
+		filter: blur(0px);
+		opacity: 1;
+	}
+}
+
+.slide-top:hover {
+	-webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2020-9-8 18:24:11
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation slide-top
+ * ----------------------------------------
+ */
+@-webkit-keyframes slide-top {
+	0% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+	100% {
+		-webkit-transform: translateY(-20px);
+		transform: translateY(-20px);
+	}
+}
+@keyframes slide-top {
+	0% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+	100% {
+		-webkit-transform: translateY(-20px);
+		transform: translateY(-20px);
+	}
+}
+
+/* #chronotime div {
+      display: flex;
+      font-size: 80px;
+      font-family: "Long Cang", cursive;
+  } */
+
+#chrono {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	color: white;
+    z-index: 3;
+    height: 100vh;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300");
+
+.column,
+.colon {
+	display: inline-block;
+	vertical-align: top;
+	font-size: 40px;
+	line-height: 35px;
+	font-family: "Long Cang", cursive;
+}
+.column {
+	transition: transform 300ms;
+}
+.colon {
+	transition: transform 300ms;
+	transform: translateY(calc(50vh - 25px));
+}
+.colon:after {
+	content: ":";
+}
+.num {
+	transition: opacity 500ms, text-shadow 100ms;
+	opacity: 0.025;
+}
+.num.visible {
+	opacity: 1;
+	text-shadow: 1px 1px 0px #369;
+}
+.num.close {
+	opacity: 0.35;
+}
+.num.far {
+	opacity: 0.15;
+}
+.num.distant {
+	opacity: 0.1;
+}
+
+
+#leader-board {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	align-content: center;
+	background: url(./sources/Bleu-foncé.jpg)
+		center center / cover no-repeat;
+	width: 100vw;
+	height: 100vh;
+	color: white;
+	position: relative;
+}
+
+#leader-board ul {
+	display: flex;
+	flex-direction: column;
+	align-content: left;
+	justify-content: left;
+	padding: 0;
+}
+#leader-board li {
+	list-style: none;
+	color: white;
+	font-size: 50px;
+	justify-content: left;
+}
