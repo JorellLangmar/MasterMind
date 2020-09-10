@@ -10,6 +10,11 @@ const resetBtn = document.querySelector(".btn-reset");
 const hintPart = document.querySelectorAll(".hint");
 const chrono = document.querySelector("#chronotime");
 const resultPart = document.querySelector("#leader-board ul");
+const winMessage = document.querySelector("#game .win");
+const loseMessage = document.querySelector("#game .lose");
+const playAgainBtnWin = document.querySelector(".play-again-win");
+const playAgainBtnLose = document.querySelector(".play-again-lose");
+const goToScoresBtn = document.querySelector(".go-to-scores")
 const colors = [
 	"blue",
 	"green",
@@ -56,6 +61,8 @@ function increTry() {
 	lines.forEach(function (line) {
 		if (line.classList.contains("full")) {
 			tryBtn++;
+			console.log(tryBtn);
+			losePopup();
 			// console.log(tryBtn);
 			return tryBtn;
 		} else;
@@ -88,12 +95,12 @@ function checkResult() {
 		result.name = "Patrick";
 		result.trials = tryBtn - 1;
 		result.time = `${hours}:${minutes}:${secondes}`;
-        // console.log(results.sort(compare));
-        results.push({...result});
-        console.log(results);
-        results.sort(compare);
-        console.log(results);
-
+		// console.log(results.sort(compare));
+		results.push({ ...result });
+		console.log(results);
+		results.sort(compare);
+		console.log(results);
+		winMessage.classList.toggle("show");
 		return result;
 	} else {
 		arr.push(roundArray);
@@ -104,8 +111,8 @@ function checkResult() {
 }
 
 function compare(a, b) {
-    console.log(a.trials);
-    console.log(b.trials);
+	console.log(a.trials);
+	console.log(b.trials);
 	const trialA = a.trials;
 	const trialB = b.trials;
 
@@ -281,7 +288,7 @@ function timeCountingFunction() {
 let intervalIdTwo = 0;
 function letsGo() {
 	intervalIdTwo = setInterval(() => {
-        c =timeFull.toString();
+		c = timeFull.toString();
 		// console.log(c);
 		// put intervalid and clear it when reset or lose/win
 		columns.forEach((ele, i) => {
@@ -306,23 +313,43 @@ start.addEventListener("click", letsGo);
 start.addEventListener("click", timeCountingFunction);
 resetBtn.addEventListener("click", resetTime);
 
-
-function loadScores () {
-    resultPart.innerHTML = "";
-    for (let i = 0; i < results.length ; i++) {
-        resultPart.innerHTML += `<li> #${i+1}  ==>   ${results[i].name} with ${results[i].trials} trials in ${results[i].time} </li>`
-    }
-};
+function loadScores() {
+	resultPart.innerHTML = "";
+	for (let i = 0; i < results.length; i++) {
+		resultPart.innerHTML += `<li> #${i + 1}  ==>   ${results[i].name} with ${
+			results[i].trials
+		} trials in ${results[i].time} </li>`;
+	}
+}
 
 tryButton.addEventListener("click", loadScores);
-
-
 
 const popup = document.querySelector("#myPopup");
 const questionMark = document.querySelector(".popup img");
 function showHelp() {
 	console.log("hello");
 	popup.classList.toggle("show");
-  }
+}
 
-questionMark.addEventListener("click",showHelp)
+questionMark.addEventListener("click", showHelp);
+
+function restartGameWin() {
+	winMessage.classList.toggle("show");
+	resetTime();
+	loadSecretCode();
+	resetTable();
+}
+
+function restartGameLose() {
+	loseMessage.classList.toggle("show");
+	resetTime();
+	loadSecretCode();
+	resetTable();
+}
+
+playAgainBtnWin.addEventListener("click", restartGameWin);
+playAgainBtnLose.addEventListener("click", restartGameLose);
+
+function losePopup () {
+	if (tryBtn == 11) {loseMessage.classList.toggle("show")}
+}

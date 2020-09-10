@@ -29,12 +29,44 @@
 				<h1 class="text-focus-in">MASTERMIND</h1>
 			</div>
 			<a href="#game"><span></span>Scroll</a>
-			<div class="popup"><img src="./sources/questionmark.png" alt="question mark">
+			<div class="popup">
+				<img src="./sources/questionmark.png" alt="question mark" />
 				<span class="popuptext" id="myPopup">
-					<h1>How to Play?</h1></span>
-			  </div>
+					<h1>How to Play?</h1>
+					<ul>
+						<li>The goal is to find the secret combination</li>
+						<li>You have ten shots to do it</li>
+						<li>After each try you'll get hints</li>
+						<li>
+							A black dot means that one of your color is in the secret
+							combination but not at the right place
+						</li>
+						<li>A white one means you're right on one color</li>
+					</ul></span
+				>
+			</div>
 		</section>
 		<section id="game">
+			<article class="message win">
+				<span class="popupText" id="myPopupWin">
+					<h1>YOU WON!</h1>
+					<img src="./sources/brain-gif.gif" alt="" />
+				</span>
+				<div class="button-message">
+					<button class="play-again-win">Play Again</button>
+					<a href="#leader-board" class="go-to-scores"><button>Go to scores</button></a>
+				</div>
+			</article>
+			<article class="message lose">
+				<span class="popupText" id="myPopupLose">
+					<h1>LOSER!</h1>
+					<img src="./sources/brain-exploding.gif" alt="" />
+				</span>
+				<div class="button-message">
+					<button class="play-again-lose">Play Again</button>
+					<a href="#leader-board" class="go-to-scores"><button>Go to scores</button></a>
+				</div>
+			</article>
 			<div id="chrono">
 				<div id="chronotime">
 					<div class="column">
