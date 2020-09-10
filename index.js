@@ -3,18 +3,16 @@
 const start = document.querySelector("#start");
 const colorsbtn = document.querySelectorAll("#colors td");
 const table = document.querySelector("#game-part tbody");
-const lines = document.querySelectorAll("#table-game tr");
 const tryButton = document.querySelector(".btn-try");
 const loadingMessage = document.querySelector(".loaded");
 const resetBtn = document.querySelector(".btn-reset");
-const hintPart = document.querySelectorAll(".hint");
 const chrono = document.querySelector("#chronotime");
 const resultPart = document.querySelector("#leader-board ul");
 const winMessage = document.querySelector("#game .win");
 const loseMessage = document.querySelector("#game .lose");
 const playAgainBtnWin = document.querySelector(".play-again-win");
 const playAgainBtnLose = document.querySelector(".play-again-lose");
-const goToScoresBtn = document.querySelector(".go-to-scores")
+const goToScoresBtn = document.querySelector(".go-to-scores");
 const difficultySlider = document.querySelector(".difficulty");
 const arrowLeft = document.querySelector("#difficulty .left");
 const arrowRight = document.querySelector("#difficulty .right");
@@ -43,7 +41,7 @@ function loadSecretCode() {
 		secretCode[j] = temp;
 	}
 	begin = "Yes";
-	secretCode.splice(4, 4);
+	secretCode.splice(1, colors.length-difficultyLength);
 	console.log(secretCode, colors);
 	loadingMessage.innerText = "Let's play, the secret code has been loaded!";
 	start.disabled = true;
@@ -134,7 +132,7 @@ var arr = [];
 let roundArray = [];
 function addColor(evt) {
 	if (begin == "Yes") {
-		for (let i = 1; i < 5; i++) {
+		for (let i = 1; i < difficultyLength + 1; i++) {
 			if (lines[lines.length - tryBtn].children[i].classList.contains("full")) {
 				// console.log("ça fonctionne");
 				continue;
@@ -163,11 +161,11 @@ function addColor(evt) {
 
 function addFull() {
 	let counting = 0;
-	for (let i = 1; i < 5; i++) {
+	for (let i = 1; i < difficultyLength + 1; i++) {
 		if (lines[lines.length - tryBtn].children[i].classList.contains("full")) {
 			counting++;
 		}
-		if (counting == 4) {
+		if (counting == difficultyLength) {
 			lines[lines.length - tryBtn].classList.add("full");
 			lines[lines.length - tryBtn - 1].classList.remove("to-be-done");
 		}
@@ -178,13 +176,13 @@ function addFull() {
 
 colorsbtn.forEach((colorBtn) => colorBtn.addEventListener("click", addColor));
 
-// Function which will reset the HTML text of the table  
+// Function which will reset the HTML text of the table
 
 function resetTable() {
 	lines.forEach(function (line) {
 		line.classList.remove("full");
 		line.classList.add("to-be-done");
-		for (let i = 1; i < 5; i++) {
+		for (let i = 1; i < difficultyLength + 1; i++) {
 			line.children[i].classList.remove(
 				"full",
 				"blue",
@@ -353,37 +351,121 @@ function restartGameLose() {
 playAgainBtnWin.addEventListener("click", restartGameWin);
 playAgainBtnLose.addEventListener("click", restartGameLose);
 
-function losePopup () {
-	if (tryBtn == 11) {loseMessage.classList.toggle("show")}
+function losePopup() {
+	if (tryBtn == 11) {
+		loseMessage.classList.toggle("show");
+	}
 }
 
-
-// Difficulty function 
+// Difficulty function
 
 const difficulty = ["Easy", "Medium", "Hard"];
+var difficultyLength = 4;
 
-function higherDifficulty () {
+function higherDifficulty() {
 	console.log("hi");
 	if (difficultySlider.innerText == `${difficulty[0]}`) {
-		difficultySlider.innerText = `${difficulty[1]}`
+		difficultySlider.innerText = `${difficulty[1]}`;
+		difficultyLength = 5;
 	} else if (difficultySlider.innerText == `${difficulty[1]}`) {
-		difficultySlider.innerText = `${difficulty[2]}`
+		difficultySlider.innerText = `${difficulty[2]}`;
+		difficultyLength = 6;
 	}
 }
 
-function lowerDifficulty () {
+function lowerDifficulty() {
 	console.log("hello");
 	if (difficultySlider.innerText == `${difficulty[1]}`) {
-		difficultySlider.innerText = `${difficulty[0]}`
+		difficultySlider.innerText = `${difficulty[0]}`;
+		difficultyLength = 4;
 	} else if (difficultySlider.innerText == `${difficulty[2]}`) {
-		difficultySlider.innerText = `${difficulty[1]}`
+		difficultySlider.innerText = `${difficulty[1]}`;
+		difficultyLength = 5;
 	}
 }
 
-function addEasy () {
-	difficultySlider.innerText = `${difficulty[0]}`
+function addEasy() {
+	difficultySlider.innerText = `${difficulty[0]}`;
 }
 
-window.addEventListener("load",addEasy);
+window.addEventListener("load", addEasy);
 arrowLeft.addEventListener("click", lowerDifficulty);
 arrowRight.addEventListener("click", higherDifficulty);
+
+var lines = "";
+var hintPart = "";
+function tableDifficulty() {
+	table.innerHTML = "";
+	if (difficultySlider.innerText == `${difficulty[0]}`) {
+		for (let i = 10; i > 1; i--) {
+			table.innerHTML += `<tr class="to-be-done">
+			<td class="line">${i}</td>
+			<td class="color"></td>
+			<td class="color"></td>
+			<td class="color"></td>
+			<td class="color"></td>
+			<td class="hint"></td>
+		</tr>`;
+		}
+		table.innerHTML += `<tr>
+		<td class="line">1</td>
+		<td class="color"></td>
+		<td class="color"></td>
+		<td class="color"></td>
+		<td class="color"></td>
+		<td class="hint"></td>
+	</tr>`;
+	} else if (difficultySlider.innerText == `${difficulty[1]}`) {
+		for (let i = 10; i > 1; i--) {
+			table.innerHTML += `<tr class="to-be-done">
+			<td class="line">${i}</td>
+			<td class="color"></td>
+			<td class="color"></td>
+			<td class="color"></td>
+			<td class="color"></td>
+			<td class="color"></td>
+			<td class="hint"></td>
+		</tr>`;
+		}
+		table.innerHTML += `<tr>
+		<td class="line">1</td>
+		<td class="color"></td>
+		<td class="color"></td>
+		<td class="color"></td>
+		<td class="color"></td>
+		<td class="color"></td>
+		<td class="hint"></td>
+	</tr>`;
+	} else if (difficultySlider.innerText == `${difficulty[2]}`) {
+		for (let i = 10; i > 1; i--) {
+			table.innerHTML += `<tr class="to-be-done">
+			<td class="line">${i}</td>
+			<td class="color"></td>
+			<td class="color"></td>
+			<td class="color"></td>
+			<td class="color"></td>
+			<td class="color"></td>
+			<td class="color"></td>
+			<td class="hint"></td>
+		</tr>`;
+		}
+		table.innerHTML += `<tr>
+		<td class="line">1</td>
+		<td class="color"></td>
+		<td class="color"></td>
+		<td class="color"></td>
+		<td class="color"></td>
+		<td class="color"></td>
+		<td class="color"></td>
+		<td class="hint"></td>
+	</tr>`;
+	}
+lines = document.querySelectorAll("#table-game tr");
+hintPart = document.querySelectorAll(".hint");
+return (lines, hintPart);
+}
+
+window.addEventListener("load", tableDifficulty);
+arrowLeft.addEventListener("click", tableDifficulty);
+arrowRight.addEventListener("click", tableDifficulty);
+

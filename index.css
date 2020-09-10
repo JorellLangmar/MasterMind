@@ -291,7 +291,7 @@ section {
 .hint {
 	display: flex;
 	flex-direction: row;
-	width: 4vw;
+	width: 5vw;
 	flex-wrap: wrap;
 	height: inherit;
 }
