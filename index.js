@@ -15,6 +15,9 @@ const loseMessage = document.querySelector("#game .lose");
 const playAgainBtnWin = document.querySelector(".play-again-win");
 const playAgainBtnLose = document.querySelector(".play-again-lose");
 const goToScoresBtn = document.querySelector(".go-to-scores")
+const difficultySlider = document.querySelector(".difficulty");
+const arrowLeft = document.querySelector("#difficulty .left");
+const arrowRight = document.querySelector("#difficulty .right");
 const colors = [
 	"blue",
 	"green",
@@ -353,3 +356,34 @@ playAgainBtnLose.addEventListener("click", restartGameLose);
 function losePopup () {
 	if (tryBtn == 11) {loseMessage.classList.toggle("show")}
 }
+
+
+// Difficulty function 
+
+const difficulty = ["Easy", "Medium", "Hard"];
+
+function higherDifficulty () {
+	console.log("hi");
+	if (difficultySlider.innerText == `${difficulty[0]}`) {
+		difficultySlider.innerText = `${difficulty[1]}`
+	} else if (difficultySlider.innerText == `${difficulty[1]}`) {
+		difficultySlider.innerText = `${difficulty[2]}`
+	}
+}
+
+function lowerDifficulty () {
+	console.log("hello");
+	if (difficultySlider.innerText == `${difficulty[1]}`) {
+		difficultySlider.innerText = `${difficulty[0]}`
+	} else if (difficultySlider.innerText == `${difficulty[2]}`) {
+		difficultySlider.innerText = `${difficulty[1]}`
+	}
+}
+
+function addEasy () {
+	difficultySlider.innerText = `${difficulty[0]}`
+}
+
+window.addEventListener("load",addEasy);
+arrowLeft.addEventListener("click", lowerDifficulty);
+arrowRight.addEventListener("click", higherDifficulty);
