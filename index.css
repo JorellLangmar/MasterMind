@@ -291,7 +291,7 @@ section {
 .hint {
 	display: flex;
 	flex-direction: row;
-	width: 5vw;
+	width: 4vw;
 	flex-wrap: wrap;
 	height: inherit;
 }
@@ -757,7 +757,7 @@ section {
 	border: solid white;
 	border-width: 0 5px 5px 0;
 	display: inline-block;
-	padding: 8px;
+	padding: 3px;
 	cursor: pointer;
   }
   
