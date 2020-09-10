@@ -315,3 +315,14 @@ function loadScores () {
 };
 
 tryButton.addEventListener("click", loadScores);
+
+
+
+const popup = document.querySelector("#myPopup");
+const questionMark = document.querySelector(".popup img");
+function showHelp() {
+	console.log("hello");
+	popup.classList.toggle("show");
+  }
+
+questionMark.addEventListener("click",showHelp)
