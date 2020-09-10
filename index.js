@@ -175,7 +175,7 @@ function addFull() {
 
 colorsbtn.forEach((colorBtn) => colorBtn.addEventListener("click", addColor));
 
-// Function which will reset the HTML text of the table
+// Function which will reset the HTML text of the table  
 
 function resetTable() {
 	lines.forEach(function (line) {
