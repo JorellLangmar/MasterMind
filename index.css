@@ -49,7 +49,7 @@ section {
 	padding-top: 50px;
 }
 
-a span {
+#first-page a span {
 	position: absolute;
 	top: 0;
 	left: 50%;
@@ -60,7 +60,7 @@ a span {
 	border-radius: 100%;
 	box-sizing: border-box;
 }
-a span::after {
+#first-page a span::after {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -74,7 +74,7 @@ a span::after {
 	transform: rotate(-45deg);
 	box-sizing: border-box;
 }
-a span::before {
+#first-page a span::before {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -673,3 +673,58 @@ a span::before {
 	-webkit-animation: fadeIn 1s;
 	animation: fadeIn 1s;
 } 
+
+#leader-board a {
+	position: absolute;
+	align-self: center;
+	top: 15%;
+	z-index: 2;
+	display: inline-block;
+	-webkit-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+	text-decoration: none;
+	color: white;
+	font-size: 30px;
+	font-family: "Long Cang", cursive;
+	padding-top: 50px;
+}
+
+#leader-board a span {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 46px;
+	height: 46px;
+	margin-left: -23px;
+	border: 1px solid #fff;
+	border-radius: 100%;
+	box-sizing: border-box;
+}
+#leader-board a span::after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	content: "";
+	width: 16px;
+	height: 16px;
+	margin: -5px 0 0 -8px;
+	border-left: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	-webkit-transform: rotate(+135deg);
+	transform: rotate(+135deg);
+	box-sizing: border-box;
+}
+#leader-board a span::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	content: "";
+	width: 44px;
+	height: 44px;
+	box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1);
+	border-radius: 100%;
+	opacity: 0;
+	-webkit-animation: sdb 3s infinite;
+	animation: sdb 3s infinite;
+	box-sizing: border-box;
