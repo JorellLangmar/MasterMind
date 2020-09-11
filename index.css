@@ -155,7 +155,7 @@ section {
 }
 
 #game-part td {
-	padding: 8px;
+	padding: 4px 8px;
 }
 
 .color {
@@ -163,12 +163,14 @@ section {
 	background: white;
 	margin: 5px;
 	width: 40px;
+	height: 40px;
 	box-shadow: inset 0px 0px 15px black;
 	border: 1px solid black;
 }
 
 .blue {
 	border-radius: 50%;
+	height: 40px;
 	background: white;
 	margin: 5px;
 	width: 40px;
@@ -178,6 +180,7 @@ section {
 
 .green {
 	border-radius: 50%;
+	height: 40px;
 	background: white;
 	margin: 5px;
 	width: 40px;
@@ -187,6 +190,7 @@ section {
 
 .yellow {
 	border-radius: 50%;
+	height: 40px;
 	background: white;
 	margin: 5px;
 	width: 40px;
@@ -196,6 +200,7 @@ section {
 
 .purple {
 	border-radius: 50%;
+	height: 40px;
 	background: white;
 	margin: 5px;
 	width: 40px;
@@ -205,6 +210,7 @@ section {
 
 .red {
 	border-radius: 50%;
+	height: 40px;
 	background: white;
 	margin: 5px;
 	width: 40px;
@@ -214,6 +220,7 @@ section {
 
 .orange {
 	border-radius: 50%;
+	height: 40px;
 	background: white;
 	margin: 5px;
 	width: 40px;
@@ -223,6 +230,7 @@ section {
 
 .pink {
 	border-radius: 50%;
+	height: 40px;
 	background: white;
 	margin: 5px;
 	width: 40px;
@@ -232,6 +240,7 @@ section {
 
 .dark-blue {
 	border-radius: 50%;
+	height: 40px;
 	background: white;
 	margin: 5px;
 	width: 40px;
@@ -243,6 +252,10 @@ section {
 	background: white;
 	margin: 5px;
 	width: 40px;
+	height: 40px;
+}
+
+#table-game tr {
 	height: 40px;
 }
 

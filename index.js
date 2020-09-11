@@ -42,7 +42,7 @@ function loadSecretCode() {
 	}
 	begin = "Yes";
 	secretCode.splice(1, colors.length-difficultyLength);
-	console.log(secretCode, colors);
+	console.log(secretCode);
 	loadingMessage.innerText = "Let's play, the secret code has been loaded!";
 	start.disabled = true;
 	tryButton.disabled = false;
@@ -62,9 +62,7 @@ function increTry() {
 	lines.forEach(function (line) {
 		if (line.classList.contains("full")) {
 			tryBtn++;
-			console.log(tryBtn);
 			losePopup();
-			// console.log(tryBtn);
 			return tryBtn;
 		} else;
 	});
@@ -85,35 +83,20 @@ function checkResult() {
 	let roundArrayString = roundArray.toString();
 	let secretCodeString = secretCode.toString();
 	if (roundArrayString == secretCodeString) {
-		console.log(
-			"You have won! It took you ==>",
-			hours,
-			minutes,
-			secondes,
-			"# of trial",
-			tryBtn - 1
-		);
 		result.name = "Patrick";
 		result.trials = tryBtn - 1;
 		result.time = `${hours}:${minutes}:${secondes}`;
-		// console.log(results.sort(compare));
 		results.push({ ...result });
-		console.log(results);
 		results.sort(compare);
-		console.log(results);
 		winMessage.classList.toggle("show");
 		return result;
 	} else {
 		arr.push(roundArray);
 		roundArray = [];
-		// console.log("this is arr ==>", arr);
-		// console.log("Nice try but no");
 	}
 }
 
 function compare(a, b) {
-	console.log(a.trials);
-	console.log(b.trials);
 	const trialA = a.trials;
 	const trialB = b.trials;
 
@@ -134,23 +117,17 @@ function addColor(evt) {
 	if (begin == "Yes") {
 		for (let i = 1; i < difficultyLength + 1; i++) {
 			if (lines[lines.length - tryBtn].children[i].classList.contains("full")) {
-				// console.log("ça fonctionne");
 				continue;
 			} else {
 				let word = evt.target.classList.value;
-				// console.log(word);
 				let index = word.indexOf(" ");
-				// console.log(index);
 				var wordModified = word.substring(0, index);
-				// console.log(wordModified);
 				lines[lines.length - tryBtn].children[i].classList.add(
 					wordModified,
 					"full"
 				);
-				console.log(lines[lines.length - tryBtn]);
 			}
 			roundArray.push(wordModified);
-			// console.log(roundArray);
 			break;
 		}
 	}
@@ -213,6 +190,8 @@ resetBtn.addEventListener("click", resetTable);
 function hint() {
 	hintPart.forEach((Text) => (Text.innerHTML = ""));
 	for (let i = 0; i < arr.length; i++) {
+		console.log(i);
+		console.log(hintPart.length);
 		for (let j = 0; j < arr[i].length; j++) {
 			if (arr[i][j] == secretCode[j]) {
 				hintPart[
@@ -225,7 +204,7 @@ function hint() {
 				].innerHTML += `<img class="black" src="./sources/blackround.png" alt="">`;
 				continue;
 			}
-		}
+		} 
 	}
 }
 
@@ -281,7 +260,6 @@ function timeCountingFunction() {
 			? (secondes = secondes.toString())
 			: (secondes = "0" + secondes.toString());
 		timeFull = hours + minutes + secondes;
-		// console.log(timeFull);
 		return timeFull;
 	}, 1000);
 }
@@ -290,8 +268,6 @@ let intervalIdTwo = 0;
 function letsGo() {
 	intervalIdTwo = setInterval(() => {
 		c = timeFull.toString();
-		// console.log(c);
-		// put intervalid and clear it when reset or lose/win
 		columns.forEach((ele, i) => {
 			let n = +c[i];
 			let offset = -n * size;
@@ -328,7 +304,6 @@ tryButton.addEventListener("click", loadScores);
 const popup = document.querySelector("#myPopup");
 const questionMark = document.querySelector(".popup img");
 function showHelp() {
-	console.log("hello");
 	popup.classList.toggle("show");
 }
 
@@ -363,7 +338,6 @@ const difficulty = ["Easy", "Medium", "Hard"];
 var difficultyLength = 4;
 
 function higherDifficulty() {
-	console.log("hi");
 	if (difficultySlider.innerText == `${difficulty[0]}`) {
 		difficultySlider.innerText = `${difficulty[1]}`;
 		difficultyLength = 5;
@@ -374,7 +348,6 @@ function higherDifficulty() {
 }
 
 function lowerDifficulty() {
-	console.log("hello");
 	if (difficultySlider.innerText == `${difficulty[1]}`) {
 		difficultySlider.innerText = `${difficulty[0]}`;
 		difficultyLength = 4;
